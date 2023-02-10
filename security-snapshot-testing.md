@@ -1,4 +1,4 @@
-# Sandworm Test Framework Plugins
+# Sandworm Security Snapshot Testing
 
 Easily extract your application permissions from your automated test suite. Snapshot-test your security to keep track of potential vulnerabilities.
 

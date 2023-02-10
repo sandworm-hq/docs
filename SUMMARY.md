@@ -1,9 +1,9 @@
 # Table of contents
 
-* [Audit](audit.md)
-* [Guard](guard.md)
-  * [Supported Methods](library.md)
-  * [Test Framework Plugins](test-framework-plugins.md)
+* [Audit](audit/README.md)
+* [Guard](guard/README.md)
+  * [Supported Methods](guard/library.md)
+* [Snapshot Testing](security-snapshot-testing.md)
 * [Contributing](contributing/README.md)
   * [Code of Conduct](contributing/code-of-conduct.md)
   * [Security Policy](contributing/security.md)

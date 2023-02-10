@@ -1,4 +1,4 @@
 root: ./
 
 structure:  
-    readme: audit.md  
+    readme: audit/README.md

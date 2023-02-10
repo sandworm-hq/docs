@@ -6,15 +6,13 @@ description: Beautiful Security & License Compliance Reports For Your App's Depe
 
 * Free & Open Source
 * Scans for vulnerabilities, license, and misc issues
-* Configurable license compliance policy
+* Works with any package manager
+* Outputs JSON issue & license usage reports
 * Outputs easy to grok SVG dependency tree & treemap representations
   * Powered by D3
   * Overlays security vulnerabilities
   * Overlays package license info
 * Outputs CSV of all dependencies & license info
-* Outputs all reports in JSON format
-* Works with npm, yarn, and pnpm
-* Made by the team behind [Sandworm](https://sandworm.dev/) - Easy auditing & sandboxing for your JavaScript dependencies
 
 ![Sandworm Tooltips](https://sandworm-assets.s3.amazonaws.com/sinkchart/demos/sinkchart-tooltip.png)
 

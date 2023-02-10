@@ -12,9 +12,9 @@ description: Easy auditing & sandboxing for your JavaScript dependencies 🪱
 
 ### TL;DR
 
-* Sandworm intercepts all potentially harmful Node & browser APIs, like arbitrary code execution (`child_process.exec`) or network calls (`fetch`). It knows what packages are responsible for each call.
+* Sandworm Guard intercepts all potentially harmful Node & browser APIs, like arbitrary code execution (`child_process.exec`) or network calls (`fetch`). It knows what packages are responsible for each call.
 * Simple obfuscation techniques can confuse static analysis tools, but Sandworm's dynamic analysis will always intercept risky calls at run time.
-* You can use Sandworm to:
+* You can use Sandworm Guard to:
   * audit your dependencies, monitor activity and permissions, and see what your code is doing under the hood using the Inspector;
   * generate a security profile automatically from your test suite and do snapshot testing against it;
   * secure your app against supply chain attacks by enforcing per-module permissions.
@@ -29,18 +29,12 @@ description: Easy auditing & sandboxing for your JavaScript dependencies 🪱
 * Did you find a bug? [Post an issue](https://github.com/sandworm-hq/sandworm-js-monitor/issues/new/choose).
 * Want to write some code? See [CONTRIBUTING.md](contributing/).
 
-#### Repos
-
-* [The JavaScript Core](https://github.com/sandworm-hq/sandworm-js-monitor)
-* [Mocha Tests Plugin](https://github.com/sandworm-hq/sandworm-mocha)
-* [Jest Tests Plugin](https://github.com/sandworm-hq/sandworm-jest)
-
 ## ToC
 
 * [Overview](index.md#overview)
 * [Getting Started](index.md#getting-started)
 * [Enforcing Permissions in Production Mode](index.md#enforcing-permissions-in-production-mode)
-* [Supported Methods](LIBRARY.md)
+* [Supported Methods](library.md)
 * [Describing Permissions](index.md#describing-permissions)
   * [Explicit Permissions for Arbitrary Code Execution](index.md#explicit-permissions-for-arbitrary-code-execution)
   * [Node Cascading Calls](index.md#node-cascading-calls)
@@ -60,11 +54,11 @@ description: Easy auditing & sandboxing for your JavaScript dependencies 🪱
 
 ## Overview
 
-Sandworm.JS is a sandboxing & malware detection tool for npm packages. Rather than relying on CVE advisories, Sandworm watches lower-level APIs like the Node VM and browser APIs like DOM manipulation, fetch, etc., and throws when a package unexpectedly accesses these APIs. While this won't protect against all classes of vulnerabilities, it assures that your project is safe from hand-crafted, zero-day vulnerabilities that leave your data open to attack until a CVE is issued and a fix is published.
+Sandworm Guard is a sandboxing & malware detection tool for npm packages. Rather than relying on CVE advisories, Sandworm watches lower-level APIs like the Node VM and browser APIs like DOM manipulation, fetch, etc., and throws when a package unexpectedly accesses these APIs. While this won't protect against all classes of vulnerabilities, it assures that your project is safe from hand-crafted, zero-day vulnerabilities that leave your data open to attack until a CVE is issued and a fix is published.
 
 Most tools in this space currently use static analysis to scan a package's source and infer potential threats by looking at code patterns, invoked methods, or loaded modules. However, it's generally simple to trick such analysis tools using [various obfuscation techniques](https://swag.cispa.saarland/papers/moog2021statically.pdf). Static analysis is, therefore, not a definitive security solution and should be used in tandem with dynamic tools like Sandworm.
 
-Sandworm does dynamic analysis in the runtime - it knows about what happens when it happens:
+Sandworm Guard does dynamic analysis in the runtime - it knows about what happens when it happens:
 
 * It can't let you know about possible vulnerabilities before it sees the code run;
 * It also can't capture information about "dormant" code that doesn't get executed;
@@ -136,7 +130,7 @@ Sandworm.init({
 
 ## Supported Methods
 
-See [LIBRARY.md](LIBRARY.md).
+See [library.md](library.md).
 
 ## Describing Permissions
 
