@@ -1,7 +1,7 @@
 # Table of contents
 
-* [Audit](audit/README.md)
-* [Guard](guard/README.md)
+* [Sandworm Audit](audit/README.md)
+* [Sandworm Guard](guard/README.md)
   * [Supported Methods](guard/library.md)
 * [Snapshot Testing](security-snapshot-testing.md)
 * [Contributing](contributing/README.md)

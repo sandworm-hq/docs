@@ -4,17 +4,30 @@ description: Beautiful Security & License Compliance Reports For Your App's Depe
 
 # Sandworm Audit
 
-* Free & Open Source
-* Scans for vulnerabilities, license, and misc issues
-* Works with any package manager
+### TL;DR
+
+* Free & open source
+* Works with any JavaScript package manager
+* Scans your dependencies for vulnerabilities, license, and misc issues
 * Outputs JSON issue & license usage reports
-* Outputs easy to grok SVG dependency tree & treemap representations
+* Outputs easy to grok SVG dependency tree & treemap visualizations
   * Powered by D3
   * Overlays security vulnerabilities
   * Overlays package license info
 * Outputs CSV of all dependencies & license info
 
-![Sandworm Tooltips](https://sandworm-assets.s3.amazonaws.com/sinkchart/demos/sinkchart-tooltip.png)
+```
+Sandworm 🪱
+✔ Built dependency graph
+✔ Got vulnerabilities
+✔ Scanned licenses
+✔ Tree chart done
+✔ Treemap chart done
+✔ CSV done
+✨ Done
+```
+
+![Sandworm Treemap and Tree Dependency Charts](https://assets.sandworm.dev/showcase/treemap-and-tree.png)
 
 > **Warning**
 > Sandworm does NOT currently support [workspaces](https://docs.npmjs.com/cli/v9/using-npm/workspaces).
@@ -23,9 +36,9 @@ description: Beautiful Security & License Compliance Reports For Your App's Depe
 
 * Have a support question? [Post it here](https://github.com/sandworm-hq/sandworm-audit/discussions/categories/q-a).
 * Have a feature request? [Post it here](https://github.com/sandworm-hq/sandworm-audit/discussions/categories/ideas).
-* Did you find a security issue? [See SECURITY.md](SECURITY.md).
+* Did you find a security issue? [See SECURITY.md](../contributing/security.md).
 * Did you find a bug? [Post an issue](https://github.com/sandworm-hq/sandworm-audit/issues/new/choose).
-* Want to write some code? See [CONTRIBUTING.md](CONTRIBUTING.md).
+* Want to write some code? See [CONTRIBUTING.md](../contributing/README.md).
 
 ## Install
 

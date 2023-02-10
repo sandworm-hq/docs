@@ -25,9 +25,9 @@ description: Easy auditing & sandboxing for your JavaScript dependencies 🪱
 
 * Have a support question? [Post it here](https://github.com/sandworm-hq/sandworm-js-monitor/discussions/categories/q-a).
 * Have a feature request? [Post it here](https://github.com/sandworm-hq/sandworm-js-monitor/discussions/categories/ideas).
-* Did you find a security issue? [See SECURITY.md](contributing/security.md).
+* Did you find a security issue? [See SECURITY.md](../contributing/security.md).
 * Did you find a bug? [Post an issue](https://github.com/sandworm-hq/sandworm-js-monitor/issues/new/choose).
-* Want to write some code? See [CONTRIBUTING.md](contributing/).
+* Want to write some code? See [CONTRIBUTING.md](../contributing/README.md).
 
 ## ToC
 
