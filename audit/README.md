@@ -4,9 +4,9 @@ description: Beautiful Security & License Compliance Reports For Your App's Depe
 
 # Sandworm Audit
 
-### TL;DR
+### Summary
 
-* Free & open source
+* Free & open source command-line tool
 * Works with any JavaScript package manager
 * Scans your project & dependencies for vulnerabilities, license, and misc issues
 * Outputs:
@@ -31,7 +31,7 @@ Security and License Compliance Audit
 
 ![Sandworm Treemap and Tree Dependency Charts](https://assets.sandworm.dev/showcase/treemap-and-tree.png)
 
-### Get Involved
+### Get involved
 
 * Have a support question? [Post it here](https://github.com/sandworm-hq/sandworm-audit/discussions/categories/q-a).
 * Have a feature request? [Post it here](https://github.com/sandworm-hq/sandworm-audit/discussions/categories/ideas).
@@ -47,27 +47,27 @@ npm install -g @sandworm/audit
 # or pnpm add -g @sandworm/audit
 ```
 
-## What You Get
+## What you get
 
 * A CSV of all dependencies, with license, size, and parent info for each package;
 * A treemap chart of all dependencies, to help you visualize your bundle size structure;
 * A tree chart of all dependencies, to easily grok hierarchies and identified issues;
 * A machine-readable JSON output of all the audit data.
 
-## How Sandworm Audits Your Project
+## How Sandworm audits your project
 
 Sandworm starts by parsing your app manifest (the content of your `package.json` file), as well as your lockfile (`package-lock.json`, `yarn.lock`, or `pnpm-lock.yaml`, depending on what package manager you use).
 
 > **Note**
-> Make sure that Sandworm runs against the most recent lockfile for your app. The lockfile is treated as the source-of-truth for information about what packages and what versions are currently in use.
+> Make sure that Sandworm runs against the most recent lockfile for your app. The lockfile represents the source-of-truth for information about what packages and what versions are currently in use.
 
 > **Warning**
-> Sandworm does NOT currently support [workspaces](https://docs.npmjs.com/cli/v9/using-npm/workspaces). You need to run Sandworm against the final built manifest and lockfile.
+> Sandworm doesn't currently support [workspaces](https://docs.npmjs.com/cli/v9/using-npm/workspaces). You need to run Sandworm against the final built manifest and lockfile.
 
-Sandworm then builds a standardized dependency graph object, representing the hierarhical structure of all your dependencies. The generated graph is enhanced with additional package metadata (like info about licenses, authors, maintainers, etc.). By default, this metadata is obtained from [NPM's registry API](https://github.com/npm/registry/blob/master/docs/REGISTRY-API.md), but an offline alternative exists that is able to retrieve less info, but locally, from the `node_modules` directory.
+Sandworm then builds a standardized dependency graph object, representing the hierarchical structure of all your dependencies, and adds package metadata on top. By default, this metadata is obtained from [npm's registry API](https://github.com/npm/registry/blob/master/docs/REGISTRY-API.md), but an offline alternative exists that's able to retrieve less info, but locally, from the `node_modules` directory.
 
 Multiple types of issue scans are then performed:
-  * **CVE vulnerabilities** are retrieved via your package manager's CLI, by reading the results of `npm audit`, `yarn audit`, or `pnpm audit`.
+  * **CVE vulnerabilities**, retrieved via your package manager's command-line tool, by reading the results of `npm audit`, `yarn audit`, or `pnpm audit`.
 
 > **Note**
 > Identified vulnerabilities might vary between different package managers.
@@ -75,13 +75,13 @@ Multiple types of issue scans are then performed:
   * All **dependency licenses** are verified to be valid SPDX, OSI-approved, and compatible with the current project license policy, amongst other license-related checks.
 
 > **Warning**
-> When identifying a package's license, Sandworm currently only looks at the `license` field in the manifest file. Reading package `LICENSE` files is on our roadmap.
+> When identifying a package's license, Sandworm currently only looks at the `license` field in the manifest file. Reading package `LICENSE` files is on the roadmap.
 
 * **Dependency metadata** is also verified against common indicators of risk or poor quality, such as deprecated packages, or packages with non-registry URLs.
 
-## Run Sandworm In The CLI
+## Run Sandworm in the terminal
 
-To use Sandworm Audit as a CLI tool, simply run `sandworm-audit` in the root directory of your project (or use the `-p` option to indicate the root dir).
+To use Sandworm Audit as a command-line tool, simply run `sandworm-audit` in the root directory of your project, or use the `-p` option to indicate the root dir.
 
 ```
 Options:
@@ -95,7 +95,7 @@ Options:
       --md, --max-depth  Max depth to represent                         [number]
 ```
 
-## Detected Issues List
+## Detected issues types
 
 | Type | Issue | Severity |
 |---|---|---|
@@ -115,11 +115,11 @@ Options:
 | Meta | Has GIT dependency | `critical` |
 | Meta | Has file dependency | `moderate` |
 
-## Chart Types
+## Chart types
 
 ### Treemap
 ![Sandworm Treemap](https://assets.sandworm.dev/showcase/treemap-snip.png)
-* [Sample Treemap for Express@4.18.2](https://assets.sandworm.dev/charts/npm/express/4.18.2/treemap.svg)
+* [Sample treemap for Express@4.18.2](https://assets.sandworm.dev/charts/npm/express/4.18.2/treemap.svg)
 * Node colors represent the dependency depth;
 * Node surface represents the size of the corresponding directory under `node_modules`;
 * A dotted pattern in a node background means the package is a shared dependency, required by multiple packages, and present multiple times in the chart;
@@ -131,16 +131,16 @@ Options:
 
 ### Tree
 ![Sandworm Tree](https://assets.sandworm.dev/showcase/tree-snip.png)
-* [Sample Tree for Express@4.18.2](https://assets.sandworm.dev/charts/npm/express/4.18.2/tree.svg)
+* [Sample tree for Express@4.18.2](https://assets.sandworm.dev/charts/npm/express/4.18.2/tree.svg)
 * Nodes are grouped by color based on the root dependency that they belong to;
 * Red text in a package name means the package has direct vulnerabilities;
 * Purple text in a package name means the package depends on other vulnerable packages;
 * Click on a node to make the tooltip persist; click outside to close it;
-* By default, the tree chart has a maximum depth of 7, meaning only seven levels of dependencies will be represented, to keep the output readable; you can override this using the `--md` option.
+* By default, the tree chart has a maximum depth of 7, meaning only seven levels of dependencies get represented, to keep the output readable; you can override this using the `--md` option.
 
-## Beta: Visualizations On Sandworm.dev
+## Beta: visualizations on sandworm.dev
 
-We strapped some simple HTML on top of Sandworm data for all existing npm packages, and made it available on [sandworm.dev](https://sandworm.dev). Here are a few links to get you started:
+Simple HTML visualizations on top of Sandworm data for all existing npm packages are available in beta on [sandworm.dev](https://sandworm.dev). Here are a few links to get you exploring:
 
 * [Apollo Client](https://sandworm.dev/npm/package/apollo-client)
 * [AWS SDK](https://sandworm.dev/npm/package/aws-sdk)

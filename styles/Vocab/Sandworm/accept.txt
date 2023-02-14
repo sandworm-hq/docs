@@ -1,0 +1,18 @@
+Sandworm
+Sandworm Audit
+sandworm
+treemap
+Treemap
+lockfile
+npm
+Yarn
+pNPM
+ESLint
+SPDX
+OSI
+CVE
+tooltip
+AWS
+GIT
+rebase
+dev

@@ -6,7 +6,7 @@ First off, thank you for considering contributing to Sandworm.
 
 Following these guidelines helps to communicate that you respect the time of the developers managing and developing this open source project. In return, they should reciprocate that respect in addressing your issue, assessing changes, and helping you finalize your pull requests.
 
-Sandworm is an open source project and we love to receive contributions from our community — you! There are many ways to contribute, from writing tutorials or blog posts, improving the documentation, submitting bug reports and feature requests or writing code which can be incorporated into Sandworm itself.
+Sandworm is an open source project and we love to receive contributions from our community. There are many ways to contribute, from writing tutorials or blog posts, improving the documentation, submitting bug reports and feature requests or writing code which can be incorporated into Sandworm itself.
 
 ## How to report a bug
 
@@ -14,7 +14,7 @@ If you find a security issue or a vulnerability in Sandworm, please do NOT open 
 
 When filing an issue with our GitHub issue tracker, make sure to answer these five questions:
 
-* What version of Sandworm.JS are you using?
+* What version of Sandworm are you using?
 * What Node version or browser version are you using?
 * What did you do?
 * What did you expect to see?
@@ -24,7 +24,7 @@ Please add the `bug` label to all bug-reporting issues.
 
 ## How to suggest a feature or enhancement
 
-If you find yourself wishing for a feature that doesn't exist in Sandworm, you are probably not alone! Please [create a new discussion here](https://github.com/sandworm-hq/sandworm-js-monitor/discussions/categories/ideas) which describes the feature you would like to see, why you need it, and how it should work.
+If you find yourself wishing for a feature that doesn't exist in Sandworm, you are probably not alone. Please [create a new discussion here](https://github.com/sandworm-hq/sandworm-js-monitor/discussions/categories/ideas) which describes the feature you would like to see, why you need it, and how it should work.
 
 ## Ground Rules
 
