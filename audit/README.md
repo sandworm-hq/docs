@@ -18,6 +18,7 @@ description: Beautiful Security & License Compliance Reports For Your App's Depe
 
 ```
 Sandworm 🪱
+Security and License Compliance Audit
 ✔ Built dependency graph
 ✔ Got vulnerabilities
 ✔ Scanned licenses
@@ -43,7 +44,11 @@ Sandworm 🪱
 ## Install
 
 ```bash
-yarn global add @sandworm/audit # or npm install -g @sandworm/audit
+npm install -g @sandworm/audit
+```
+
+```bash
+yarn global add @sandworm/audit
 ```
 
 ## Options
