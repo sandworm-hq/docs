@@ -67,17 +67,17 @@ Sandworm starts by parsing your app manifest (the content of your `package.json`
 Sandworm then builds a standardized dependency graph object, representing the hierarhical structure of all your dependencies. The generated graph is enhanced with additional package metadata (like info about licenses, authors, maintainers, etc.). By default, this metadata is obtained from [NPM's registry API](https://github.com/npm/registry/blob/master/docs/REGISTRY-API.md), but an offline alternative exists that is able to retrieve less info, but locally, from the `node_modules` directory.
 
 Multiple types of issue scans are then performed:
-  * CVE vulnerabilities are retrieved via your package manager's CLI, by reading the results of `npm audit`, `yarn audit`, or `pnpm audit`.
+  * **CVE vulnerabilities** are retrieved via your package manager's CLI, by reading the results of `npm audit`, `yarn audit`, or `pnpm audit`.
 
 > **Note**
 > Identified vulnerabilities might vary between different package managers.
 
-  * All dependency licenses are verified to be valid SPDX, OSI-approved, and compatible with the current project license policy, amongst other license-related checks.
+  * All **dependency licenses** are verified to be valid SPDX, OSI-approved, and compatible with the current project license policy, amongst other license-related checks.
 
 > **Warning**
 > When identifying a package's license, Sandworm currently only looks at the `license` field in the manifest file. Reading package `LICENSE` files is on our roadmap.
 
-* Dependency metadata is also verified against common indicators of risk or poor quality, such as deprecated packages, or packages with non-registry URLs.
+* **Dependency metadata** is also verified against common indicators of risk or poor quality, such as deprecated packages, or packages with non-registry URLs.
 
 ## Run Sandworm In The CLI
 
@@ -118,6 +118,7 @@ Options:
 ## Chart Types
 
 ### Treemap
+![Sandworm Treemap](https://assets.sandworm.dev/showcase/treemap-snip.png)
 * [Sample Treemap for Express@4.18.2](https://assets.sandworm.dev/charts/npm/express/4.18.2/treemap.svg)
 * Node colors represent the dependency depth;
 * Node surface represents the size of the corresponding directory under `node_modules`;
@@ -129,6 +130,7 @@ Options:
 * When representing deep dependencies, the surface area of certain packages might reach zero, making them invisible.
 
 ### Tree
+![Sandworm Tree](https://assets.sandworm.dev/showcase/tree-snip.png)
 * [Sample Tree for Express@4.18.2](https://assets.sandworm.dev/charts/npm/express/4.18.2/tree.svg)
 * Nodes are grouped by color based on the root dependency that they belong to;
 * Red text in a package name means the package has direct vulnerabilities;
