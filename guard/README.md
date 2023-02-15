@@ -4,13 +4,13 @@ description: Easy auditing & sandboxing for your JavaScript dependencies 🪱
 
 # Sandworm Guard
 
-[![NPM][npm-version-image]][npm-version-url]
+[![npm][npm-version-image]][npm-version-url]
 [![License][license-image]][license-url]
 [![CircleCI][ci-image]][ci-url]
 [![Maintainability][cc-image]][cc-url]
 [![Test Coverage][coverage-image]][coverage-url]
 
-### TL;DR
+### Summary
 
 * Sandworm Guard intercepts all potentially harmful Node & browser APIs, like arbitrary code execution (`child_process.exec`) or network calls (`fetch`). It knows what packages are responsible for each call.
 * Simple obfuscation techniques can confuse static analysis tools, but Sandworm's dynamic analysis will always intercept risky calls at run time.
@@ -23,10 +23,10 @@ description: Easy auditing & sandboxing for your JavaScript dependencies 🪱
 
 #### Get involved
 
-* Have a support question? [Post it here](https://github.com/sandworm-hq/sandworm-js-monitor/discussions/categories/q-a).
-* Have a feature request? [Post it here](https://github.com/sandworm-hq/sandworm-js-monitor/discussions/categories/ideas).
+* Have a support question? [Post it here](https://github.com/sandworm-hq/sandworm-guard-js/discussions/categories/q-a).
+* Have a feature request? [Post it here](https://github.com/sandworm-hq/sandworm-guard-js/discussions/categories/ideas).
 * Did you find a security issue? [See SECURITY.md](../contributing/security.md).
-* Did you find a bug? [Post an issue](https://github.com/sandworm-hq/sandworm-js-monitor/issues/new/choose).
+* Did you find a bug? [Post an issue](https://github.com/sandworm-hq/sandworm-guard-js/issues/new/choose).
 * Want to write some code? See [CONTRIBUTING.md](../contributing/README.md).
 
 ## ToC
@@ -69,7 +69,7 @@ Sandworm Guard does dynamic analysis in the runtime - it knows about what happen
 Add the following lines to **the very start of your app's entry point** to load Sandworm in dev mode. In dev mode, all calls will be intercepted and tracked to the inspector tool, but no enforcement will happen (all calls will be allowed).
 
 ```javascript
-require('sandworm').init({devMode: true});
+require('@sandworm/guard').init({devMode: true});
 ```
 
 > **Warning**
@@ -100,25 +100,25 @@ In the left, you'll see a list of all caller paths that have been intercepted. T
 To use in production mode and start enforcing module API access restrictions, provide a `permissions` array to `Sandworm.init`:
 
 ```javascript
-const Sandworm = require('sandworm');
+const Sandworm = require('@sandworm/guard');
 Sandworm.init({
     devMode: process.env.NODE_ENV === 'development',
     permissions: [{module: 'react-use', permissions: ['Storage.getItem', 'Storage.setItem']}],
 });
 ```
 
-* Update the `devMode` config to reflect your environment by using env vars or any other available signal;
+* Update the `devMode` config to reflect your environment by using environment vars or any other available signal;
 * Provide an array of permission descriptors in the form of objects with a `module` name and a `permissions` array of strings corresponding to the allowed methods.
 * The inspector can generate a baseline permissions array for you based on the activity captured in dev mode.
 
-If an unauthorized execution attempt is detected, Sandworm will throw a `SandwormError`. Besides the `message` attribute, this error object also includes more details about the event:
+When detecting an unauthorized execution attempt, Sandworm throws a `SandwormError`. Besides the `message` attribute, this error object also includes more details about the event:
 * `module`: the invoking module name or path
-* `method`: the invoked method (e.g. `fs.readFile`)
+* `method`: the invoked method, for example `fs.readFile`
 
-Note that errors might be swallowed by 3rd party code and not reach root level, so catching a `SandwormError`, while recommended, will not always work. To make sure your app code gets notified about every unauthorized execution, use the `onAccessDenied` configuration option to register a callback method that will always be triggered right before Sandworm throws, and passed the `SandwormError` object as an argument.
+Note that errors might be swallowed by third party code and not reach root level, so catching a `SandwormError`, while recommended, will not always work. To make sure your app code gets notified about every unauthorized execution, use the `onAccessDenied` configuration option to register a callback method that will always be triggered right before Sandworm throws, and passed the `SandwormError` object as an argument.
 
 ```javascript
-const Sandworm = require('sandworm');
+const Sandworm = require('@sandworm/guard');
 Sandworm.init({
     devMode: process.env.NODE_ENV === 'development',
     permissions: [...],
@@ -251,7 +251,7 @@ Root code can be segmented into multiple "virtual" modules based on the file pat
 
 ```javascript
 // Say we want to run unit tests for https://github.com/expressjs/express
-require("sandworm").init({
+require("@sandworm/guard").init({
   devMode: true,
   trustedModules: ['mocha'],
   // This will make the express core source code register as `express` instead of `root`
@@ -336,7 +336,7 @@ For every method call that Sandworm intercepts, the inspector will share the fol
 }
 ```
 
-This will make it easier for everyone to audit packages and set up Sandworm. To opt out of sharing data with the community, run the inspector with the `--no-telemetry` option. You can also audit [what's getting sent](https://github.com/sandworm-hq/sandworm-js-monitor/blob/main/cli/index.js#L19) and the [server code](https://github.com/sandworm-hq/sandworm-collect).
+This will make it easier for everyone to audit packages and set up Sandworm. To opt out of sharing data with the community, run the inspector with the `--no-telemetry` option. You can also audit [what's getting sent](https://github.com/sandworm-hq/sandworm-guard-js/blob/main/cli/index.js#L19) and the [server code](https://github.com/sandworm-hq/sandworm-collect).
 
 ## How Sandworm is Tested
 
@@ -346,15 +346,15 @@ Sandworm has several layers of automated testing:
 * Playwright is used to run browser capture & enforce tests for all supported browser APIs (tests run on WebKit, Chromium, and Firefox). See the `tests/web` directory.
 * Jest is used to run unit tests on the core Sandworm source files. See the `tests/unit` directory.
 
-Check out our latest test run inside our [CircleCI pipeline](https://app.circleci.com/pipelines/github/sandworm-hq/sandworm-js-monitor).
+Check out our latest test run inside our [CircleCI pipeline](https://app.circleci.com/pipelines/github/sandworm-hq/sandworm-guard-js).
 
 [npm-version-image]: https://img.shields.io/npm/v/sandworm?style=flat-square
 [npm-version-url]: https://www.npmjs.com/package/sandworm
 [license-image]: https://img.shields.io/npm/l/sandworm?style=flat-square
-[license-url]: https://github.com/sandworm-hq/sandworm-js-monitor/blob/main/LICENSE
-[ci-image]: https://img.shields.io/circleci/build/github/sandworm-hq/sandworm-js-monitor?style=flat-square
-[ci-url]: https://app.circleci.com/pipelines/github/sandworm-hq/sandworm-js-monitor
+[license-url]: https://github.com/sandworm-hq/sandworm-guard-js/blob/main/LICENSE
+[ci-image]: https://img.shields.io/circleci/build/github/sandworm-hq/sandworm-guard-js?style=flat-square
+[ci-url]: https://app.circleci.com/pipelines/github/sandworm-hq/sandworm-guard-js
 [cc-image]: https://api.codeclimate.com/v1/badges/edff60f7f06bb0c589aa/maintainability
-[cc-url]: https://codeclimate.com/github/sandworm-hq/sandworm-js-monitor/maintainability
+[cc-url]: https://codeclimate.com/github/sandworm-hq/sandworm-guard-js/maintainability
 [coverage-image]: https://api.codeclimate.com/v1/badges/edff60f7f06bb0c589aa/test_coverage
-[coverage-url]: https://codeclimate.com/github/sandworm-hq/sandworm-js-monitor/test_coverage
+[coverage-url]: https://codeclimate.com/github/sandworm-hq/sandworm-guard-js/test_coverage
