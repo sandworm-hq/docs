@@ -31,6 +31,21 @@ Security and License Compliance Audit
 
 ![Sandworm Treemap and Tree Dependency Charts](https://assets.sandworm.dev/showcase/treemap-and-tree.png)
 
+```json
+{
+  "createdAt": "...",
+  "packageManager": "...",
+  "name": "...",
+  "version": "...",
+  "rootVulnerabilities": [...],
+  "dependencyVulnerabilities": [...],
+  "licenseUsage": {...},
+  "licenseIssues": [...],
+  "metaIssues": [...],
+  "errors": [...],
+}
+```
+
 ### Get involved
 
 * Have a support question? [Post it here](https://github.com/sandworm-hq/sandworm-audit/discussions/categories/q-a).
