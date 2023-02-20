@@ -28,3 +28,4 @@ API
 boolean
 sandboxing
 inlined
+severities

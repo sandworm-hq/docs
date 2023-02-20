@@ -116,6 +116,56 @@ Options:
                                                   [string] [default: "registry"]
 ```
 
+Sandworm also reads configs from a local `.sandworm.config.json` file in the root dir of the app. Here is an example file that includes all of the available configuration fields:
+
+```json
+{
+  "audit": {
+    "includeDev": false,
+    "showVersions": false,
+    "maxDepth": 10,
+    "minDisplayedSeverity": "high",
+    "licensePolicy": {
+      "high": ["cat:Network Protective", "cat:Strongly Protective"],
+      "moderate": ["cat:Weakly Protective"],
+    },
+    "loadDataFrom": "registry",
+    "outputPath": ".sandworm"
+  }
+}
+```
+
+## License policies
+
+Sandworm uses license policies to determine what sort of issues to raise when scanning your app's dependency licenses. A license policy object links specific license strings or license categories to an issue severity level. Any usage of such licenses will, upon audit, generate a license issue of the specified severity.
+
+The default license policy:
+- Generates `high` severity license issues for licenses labeled as `Network Protective` or `Strongly Protective`;
+- Generates `moderate` severity license issues for licenses labeled as `Weakly Protective`.
+
+> **Note**
+> Un-categorized licenses always result in a `high` severity error.
+
+See Sandworm's built-in [SPDX license database](https://github.com/sandworm-hq/sandworm-audit/blob/main/src/issues/licenses.json) for the full classification breakdown.
+
+> **Warning**
+> While we do our best to keep license info accurate and up-to-date, you should still carefully review all of the terms and conditions of the actual license before using the licensed material. Sandworm isn't a law firm and doesn't provide legal services.
+
+You can configure Sandworm to use a custom license policy. The policy object:
+- has keys that match one of the supported issues severities: `critical`, `high`, `moderate`, or `low`;
+- has values that are arrays;
+- each array value is a string that represents:
+  - a specific license - for example `MIT`;
+  - a category of licenses, prefixed by "cat:" - for example `cat:Network Protective`.
+
+As an example, here is the default license policy that Sandworm applies:
+```json
+{
+  "high": ["cat:Network Protective", "cat:Strongly Protective"],
+  "moderate": ["cat:Weakly Protective"],
+}
+```
+
 ## Detected issues types
 
 | Type | Issue | Severity |
