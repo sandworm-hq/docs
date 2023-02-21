@@ -82,7 +82,7 @@ Sandworm starts by parsing your app manifest (the content of your `package.json`
 
 Sandworm then builds a standardized dependency graph object, representing the hierarchical structure of all your dependencies, and adds package metadata on top. By default, this metadata is obtained from [npm's registry API](https://github.com/npm/registry/blob/master/docs/REGISTRY-API.md), but an offline alternative exists that's able to retrieve less info, but locally, from the `node_modules` directory.
 
-Multiple types of issue scans are then performed:
+Multiple types of issue scans are then performed - see [detected issue types](#detected-issue-types) for the full list.
   * **CVE vulnerabilities**, retrieved via your package manager's command-line tool, by reading the results of `npm audit`, `yarn audit`, or `pnpm audit`.
 
 > **Note**
@@ -114,6 +114,7 @@ Options:
       --lp, --license-policy  Custom license policy JSON string         [string]
   -f, --from                  Load data from "registry" or "disk"
                                                   [string] [default: "registry"]
+      --fo, --fail-on         Fail policy JSON string   [string] [default: "[]"]
 ```
 
 Sandworm also reads configs from a local `.sandworm.config.json` file in the root dir of the app. Here is an example file that includes all of the available configuration fields:
@@ -130,7 +131,8 @@ Sandworm also reads configs from a local `.sandworm.config.json` file in the roo
       "moderate": ["cat:Weakly Protective"],
     },
     "loadDataFrom": "registry",
-    "outputPath": ".sandworm"
+    "outputPath": ".sandworm",
+    "failOn": ["*.critical"],
   }
 }
 ```
@@ -166,7 +168,13 @@ As an example, here is the default license policy that Sandworm applies:
 }
 ```
 
-## Detected issues types
+To provide a custom license policy, use the `--license-policy` command-line option, or the `audit.licensePolicy` field in the `.sandworm.config.json` configuration file. For example, to generate a critical issue for any dependency using the `MIT` license:
+
+```bash
+sandworm-audit --license-policy '{"critical": ["MIT"]}'
+```
+
+## Detected issue types
 
 | Type | Issue | Severity |
 |---|---|---|
@@ -185,6 +193,28 @@ As an example, here is the default license policy that Sandworm applies:
 | Meta | Has HTTP dependency | `critical` |
 | Meta | Has GIT dependency | `critical` |
 | Meta | Has file dependency | `moderate` |
+
+## Fail on identified issues
+
+When running in the command line, Sandworm can be configured to fail by exiting with code 1 when identifying specific issue types and/or severities. This makes it easy to integrate Sandworm as a part of your CI or Git hook flow.
+
+To provide fail conditions, use the `--fail-on` command-line option, or the `audit.failOn` field in the `.sandworm.config.json` configuration file. You should provide an array of string conditions. Each condition has a required type and a required severity, joined by a dot. Possible types are `*`, `root`, `dependencies`, `license`, and `meta`. Possible severities are `*`, `critical`, `high`, `moderate`, and `low`. Using these, you can construct fail conditions like:
+- `*.*` - fail on any issue;
+- `dependencies.*` - fail on any vulnerability identified with the app dependencies;
+- `root.*` - fail on any vulnerability identified with the app itself;
+- `*.critical` - fail on any critical severity issue.
+
+For example, to fail on any critical or high severity issues:
+
+```bash
+sandworm-audit --fail-on='["*.critical", "*.high"]'
+```
+
+> **Note**
+> No fail conditions are set by default.
+
+> **Note**
+> Sandworm will also exit with code 1 if it encounters any errors that potentially alter the audit result.
 
 ## Chart types
 
