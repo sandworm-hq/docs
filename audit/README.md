@@ -18,19 +18,9 @@ description: Beautiful Security & License Compliance Reports For Your App's Depe
     * Overlays package license info
   * CSV of all dependencies & license info
 
-```
-Sandworm 🪱
-Security and License Compliance Audit
-✔ Built dependency graph
-✔ Got vulnerabilities
-✔ Scanned licenses
-✔ Tree chart done
-✔ Treemap chart done
-✔ CSV done
-✨ Done
-```
+![Running Sandworm Audit in the terminal](https://assets.sandworm.dev/showcase/audit-terminal-output.gif)
 
-![Sandworm Treemap and Tree Dependency Charts](https://assets.sandworm.dev/showcase/treemap-and-tree.png)
+![Sandworm treemap and tree dependency charts](https://assets.sandworm.dev/showcase/treemap-and-tree.png)
 
 ```json
 {
