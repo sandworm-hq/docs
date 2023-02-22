@@ -18,7 +18,7 @@ description: Beautiful Security & License Compliance Reports For Your App's Depe
     * Overlays package license info
   * CSV of all dependencies & license info
 
-![Running Sandworm Audit in the terminal](https://assets.sandworm.dev/showcase/audit-terminal-output.gif)
+<img alt="Running Sandworm Audit in the terminal" src="https://assets.sandworm.dev/showcase/audit-terminal-output.gif" width="500" />
 
 ![Sandworm treemap and tree dependency charts](https://assets.sandworm.dev/showcase/treemap-and-tree.png)
 
