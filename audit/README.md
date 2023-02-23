@@ -110,7 +110,7 @@ Options:
       --version               Show version number                      [boolean]
       --help                  Show help                                [boolean]
   -o, --output-path           The path of the output directory, relative to the
-                              application path   [string] [default: ".sandworm"]
+                              application path    [string] [default: "sandworm"]
   -d, --include-dev           Include dev dependencies[boolean] [default: false]
   -v, --show-versions         Show package versions in chart names
                                                       [boolean] [default: false]
@@ -138,7 +138,7 @@ Sandworm also reads configs from a local `.sandworm.config.json` file in the roo
       "moderate": ["cat:Weakly Protective"],
     },
     "loadDataFrom": "registry",
-    "outputPath": ".sandworm",
+    "outputPath": "sandworm",
     "failOn": ["*.critical"],
   }
 }
