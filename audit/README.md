@@ -24,6 +24,9 @@ description: Beautiful Security & License Compliance Reports For Your App's Depe
 ### Navigate charts
 ![Sandworm treemap and tree dependency charts](https://assets.sandworm.dev/showcase/treemap-and-tree.png)
 
+### CSV output
+![Sandworm dependency CSV](https://assets.sandworm.dev/showcase/csv-snip.png)
+
 ### JSON output
 {% code title="report.json" overflow="wrap" lineNumbers="true" %}
 ```json
