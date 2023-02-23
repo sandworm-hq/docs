@@ -22,6 +22,7 @@ description: Beautiful Security & License Compliance Reports For Your App's Depe
 
 ![Sandworm treemap and tree dependency charts](https://assets.sandworm.dev/showcase/treemap-and-tree.png)
 
+{% code title="report.json" overflow="wrap" lineNumbers="true" %}
 ```json
 {
   "createdAt": "...",
@@ -36,6 +37,7 @@ description: Beautiful Security & License Compliance Reports For Your App's Depe
   "errors": [...],
 }
 ```
+{% endcode %}
 
 ### Get involved
 
@@ -64,24 +66,28 @@ npm install -g @sandworm/audit
 
 Sandworm starts by parsing your app manifest (the content of your `package.json` file), as well as your lockfile (`package-lock.json`, `yarn.lock`, or `pnpm-lock.yaml`, depending on what package manager you use).
 
-> **Note**
-> Make sure that Sandworm runs against the most recent lockfile for your app. The lockfile represents the source-of-truth for information about what packages and what versions are currently in use.
+{% hint style="info" %}
+Make sure that Sandworm runs against the most recent lockfile for your app. The lockfile represents the source-of-truth for information about what packages and what versions are currently in use.
+{% endhint %}
 
-> **Warning**
-> Sandworm doesn't currently support [workspaces](https://docs.npmjs.com/cli/v9/using-npm/workspaces). You need to run Sandworm against the final built manifest and lockfile.
+{% hint style="warning" %}
+Sandworm doesn't currently support [workspaces](https://docs.npmjs.com/cli/v9/using-npm/workspaces). You need to run Sandworm against the final built manifest and lockfile.
+{% endhint %}
 
 Sandworm then builds a standardized dependency graph object, representing the hierarchical structure of all your dependencies, and adds package metadata on top. By default, this metadata is obtained from [npm's registry API](https://github.com/npm/registry/blob/master/docs/REGISTRY-API.md), but an offline alternative exists that's able to retrieve less info, but locally, from the `node_modules` directory.
 
 Multiple types of issue scans are then performed - see [detected issue types](#detected-issue-types) for the full list.
   * **CVE vulnerabilities**, retrieved via your package manager's command-line tool, by reading the results of `npm audit`, `yarn audit`, or `pnpm audit`.
 
-> **Note**
-> Identified vulnerabilities might vary between different package managers.
+{% hint style="info" %}
+Identified vulnerabilities might vary between different package managers.
+{% endhint %}
 
   * All **dependency licenses** are verified to be valid SPDX, OSI-approved, and compatible with the current project license policy, amongst other license-related checks.
 
-> **Warning**
+{% hint style="warning" %}
 > When identifying a package's license, Sandworm currently only looks at the `license` field in the manifest file. Reading package `LICENSE` files is on the roadmap.
+{% endhint %}
 
 * **Dependency metadata** is also verified against common indicators of risk or poor quality, such as deprecated packages, or packages with non-registry URLs.
 
@@ -135,13 +141,15 @@ The default license policy:
 - Generates `high` severity license issues for licenses labeled as `Network Protective` or `Strongly Protective`;
 - Generates `moderate` severity license issues for licenses labeled as `Weakly Protective`.
 
-> **Note**
-> Un-categorized licenses always result in a `high` severity error.
+{% hint style="info" %}
+Un-categorized licenses always result in a `high` severity error.
+{% endhint %}
 
 See Sandworm's built-in [SPDX license database](https://github.com/sandworm-hq/sandworm-audit/blob/main/src/issues/licenses.json) for the full classification breakdown.
 
-> **Warning**
-> While we do our best to keep license info accurate and up-to-date, you should still carefully review all of the terms and conditions of the actual license before using the licensed material. Sandworm isn't a law firm and doesn't provide legal services.
+{% hint style="danger" %}
+While we do our best to keep license info accurate and up-to-date, you should still carefully review all of the terms and conditions of the actual license before using the licensed material. Sandworm isn't a law firm and doesn't provide legal services.
+{% endhint %}
 
 You can configure Sandworm to use a custom license policy. The policy object:
 - has keys that match one of the supported issues severities: `critical`, `high`, `moderate`, or `low`;
@@ -200,11 +208,13 @@ For example, to fail on any critical or high severity issues:
 sandworm-audit --fail-on='["*.critical", "*.high"]'
 ```
 
-> **Note**
-> No fail conditions are set by default.
+{% hint style="info" %}
+No fail conditions are set by default.
+{% endhint %}
 
-> **Note**
-> Sandworm will also exit with code 1 if it encounters any errors that potentially alter the audit result.
+{% hint style="info" %}
+Sandworm will also exit with code 1 if it encounters any errors that potentially alter the audit result.
+{% endhint %}
 
 ## Chart types
 

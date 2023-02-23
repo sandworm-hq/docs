@@ -30,3 +30,5 @@ boolean
 sandboxing
 inlined
 severities
+endhint
+endcode
