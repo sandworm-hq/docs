@@ -86,7 +86,7 @@ Identified vulnerabilities might vary between different package managers.
   * All **dependency licenses** are verified to be valid SPDX, OSI-approved, and compatible with the current project license policy, amongst other license-related checks.
 
 {% hint style="warning" %}
-> When identifying a package's license, Sandworm currently only looks at the `license` field in the manifest file. Reading package `LICENSE` files is on the roadmap.
+When identifying a package's license, Sandworm currently only looks at the `license` field in the manifest file. Reading package `LICENSE` files is on the roadmap.
 {% endhint %}
 
 * **Dependency metadata** is also verified against common indicators of risk or poor quality, such as deprecated packages, or packages with non-registry URLs.
@@ -115,6 +115,7 @@ Options:
 
 Sandworm also reads configs from a local `.sandworm.config.json` file in the root dir of the app. Here is an example file that includes all of the available configuration fields:
 
+{% code title=".sandworm.config.json" overflow="wrap" lineNumbers="true" %}
 ```json
 {
   "audit": {
@@ -132,6 +133,7 @@ Sandworm also reads configs from a local `.sandworm.config.json` file in the roo
   }
 }
 ```
+{% endcode %}
 
 ## License policies
 
