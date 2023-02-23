@@ -4,7 +4,7 @@ description: Beautiful Security & License Compliance Reports For Your App's Depe
 
 # Sandworm Audit
 
-### Summary
+## Summary
 
 * Free & open source command-line tool
 * Works with any JavaScript package manager
@@ -18,10 +18,13 @@ description: Beautiful Security & License Compliance Reports For Your App's Depe
     * Overlays package license info
   * CSV of all dependencies & license info
 
-<img alt="Running Sandworm Audit in the terminal" src="https://assets.sandworm.dev/showcase/audit-terminal-output.gif" width="500" />
+### Generate a report
+![Running Sandworm Audit](https://assets.sandworm.dev/showcase/audit-terminal-output.gif)
 
+### Navigate charts
 ![Sandworm treemap and tree dependency charts](https://assets.sandworm.dev/showcase/treemap-and-tree.png)
 
+### JSON output
 {% code title="report.json" overflow="wrap" lineNumbers="true" %}
 ```json
 {
