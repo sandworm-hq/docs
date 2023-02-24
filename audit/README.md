@@ -55,6 +55,10 @@ description: Beautiful Security & License Compliance Reports For Your App's Depe
 
 ## Install
 
+{% hint style="info" %}
+Sandworm Audit requires Node 14+.
+{% endhint %}
+
 Install `sandworm-audit` globally via your favorite package manager:
 
 ```bash
