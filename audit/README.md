@@ -110,7 +110,7 @@ When identifying a package's license, Sandworm currently only looks at the `lice
 
 ## Run Sandworm in the terminal
 
-To use Sandworm Audit as a command-line tool, simply run `sandworm-audit` or `npx @sandworm/audit` in the root directory of your project, or use the `-p` option to indicate the root dir.
+To use Sandworm Audit as a command-line tool, simply run `sandworm-audit` or `npx @sandworm/audit@latest` in the root directory of your project, or use the `-p` option to indicate the root dir.
 
 ```
 Options:
