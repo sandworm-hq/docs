@@ -70,7 +70,7 @@ npm install -g @sandworm/audit
 # or pnpm add -g @sandworm/audit
 ```
 
-Or directly run without installing via `npx @sandworm/audit`.
+Or directly run without installing via `npx @sandworm/audit@latest`.
 
 ## What you get
 
