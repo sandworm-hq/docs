@@ -27,6 +27,10 @@ To use Sandworm Audit as a command-line tool, simply run `sandworm-audit` or `np
 The app root directory should contain a manifest file (`package.json`) and a lockfile (`package-lock.json`, `yarn.lock`, or `pnpm-lock.yaml`).
 {% endhint %}
 
+{% hint style="warning" %}
+Sandworm doesn't currently support [workspaces](https://docs.npmjs.com/cli/v9/using-npm/workspaces). You need to run Sandworm against the final built manifest and lockfile.
+{% endhint %}
+
 You can use a [configuration file](./configuration.md), or you can pass configuration options directly to the command-line tool. Here are the available options, that you can also list by running `sandworm-audit --help`:
 
 ```
