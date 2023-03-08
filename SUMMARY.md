@@ -3,6 +3,7 @@
 * [Sandworm Audit](audit/README.md)
   * [Getting Started](audit/getting-started.md)
   * [How It Works](audit/how-it-works.md)
+  * [Configuration](audit/configuration.md)
   * [Issue Types](audit/issue-types.md)
   * [License Policies](audit/license-policies.md)
   * [Fail Policy](audit/fail-policy.md)

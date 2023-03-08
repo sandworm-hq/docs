@@ -17,11 +17,17 @@ npm install -g @sandworm/audit
 # or pnpm add -g @sandworm/audit
 ```
 
-Or directly run without installing via `npx @sandworm/audit@latest`.
+You can also directly run without installing via `npx @sandworm/audit@latest`.
 
 ## Run Sandworm in the terminal
 
-To use Sandworm Audit as a command-line tool, simply run `sandworm-audit` or `npx @sandworm/audit@latest` in the root directory of your project, or use the `-p` option to indicate the root dir.
+To use Sandworm Audit as a command-line tool, simply run `sandworm-audit` or `npx @sandworm/audit@latest` in the root directory of your app, or use the `-p` option to point to the root dir.
+
+{% hint style="warning" %}
+The app root directory should contain a manifest file (`package.json`) and a lockfile (`package-lock.json`, `yarn.lock`, or `pnpm-lock.yaml`).
+{% endhint %}
+
+You can use a [configuration file](./configuration.md), or you can pass configuration options directly to the command-line tool. Here are the available options, that you can also list by running `sandworm-audit --help`:
 
 ```
 Options:
@@ -41,24 +47,13 @@ Options:
       --fo, --fail-on         Fail policy JSON string   [string] [default: "[]"]
 ```
 
-Sandworm also reads configs from a local `.sandworm.config.json` file in the root dir of the app. Here is an example file that includes all of the available configuration fields:
+Generating a report can sometimes take a while, depending on how many direct and transient dependencies your app has in total. Sandworm fetches details about each individual dependency from the registry, so network conditions and registry availability are factors that can influence the total audit duration.
 
-{% code title=".sandworm.config.json" overflow="wrap" lineNumbers="true" %}
-```json
-{
-  "audit": {
-    "includeDev": false,
-    "showVersions": false,
-    "maxDepth": 10,
-    "minDisplayedSeverity": "high",
-    "licensePolicy": {
-      "high": ["cat:Network Protective", "cat:Strongly Protective"],
-      "moderate": ["cat:Weakly Protective"],
-    },
-    "loadDataFrom": "registry",
-    "outputPath": "sandworm",
-    "failOn": ["*.critical"],
-  }
-}
-```
-{% endcode %}
+After completing a report, Sandworm:
+- Outputs a summary of the identified issues to the console, as well as a list of them sorted by severity;
+- Writes the following audit artefacts in the `sandworm` directory (or your custom output path):
+  - `NAME@VERSION-dependencies.csv`
+  - `NAME@VERSION-report.json`
+  - `NAME@VERSION-tree.svg`
+  - `NAME@VERSION-treemap.svg`
+- Exits with an error, if a fail policy is set and the fail conditions are met.
