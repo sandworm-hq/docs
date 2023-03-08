@@ -56,7 +56,10 @@ description: Beautiful Security & License Compliance Reports For Your App's Depe
 ## Install
 
 {% hint style="info" %}
-Sandworm Audit requires Node 14+.
+Sandworm Audit requires Node 14.19+.
+{% endhint %}
+{% hint style="info" %}
+When using npm, Sandworm Audit supports lockfile versions 2 and 3 (npm 7+).
 {% endhint %}
 
 Install `sandworm-audit` globally via your favorite package manager:
