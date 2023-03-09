@@ -1,4 +1,4 @@
-# Detected issue types
+## Detected issue types
 
 | Type | Issue | Severity | Code |
 |---|---|---|---|

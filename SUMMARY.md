@@ -7,6 +7,7 @@
   * [Issue Types](audit/issue-types.md)
   * [License Policies](audit/license-policies.md)
   * [Fail Policies](audit/fail-policies.md)
+  * [Chart Info](audit/chart-info.md)
 * [Sandworm Guard](guard/README.md)
   * [Supported Methods](guard/library.md)
 * [Snapshot Testing](security-snapshot-testing.md)

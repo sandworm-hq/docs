@@ -21,3 +21,18 @@ Sandworm reads configurations from a local `.sandworm.config.json` file in the r
 }
 ```
 {% endcode %}
+
+{% hint style="warning" %}
+Note that all configs need to go under the `audit` root key, and not directly in the root of the json file.
+{% endhint %}
+
+| Option | Default | Description |
+|---|---|---|
+| `includeDev` | `false` | Also include dev dependencies in the audit. Note that this might make audits take noticeably longer, as a lot more dependency data needs to be retrieved from the registry. |
+| `showVersions` | `false` | Should tree and treemap chart node titles also include the represented package version. Version info is also available by hovering the node. |
+| `maxDepth` | 7 | The maximum depth to represent in tree and treemap charts. Useful for large projects with deep dependency graphs. |
+| `minDisplayedSeverity` | `high` | The minimum severity level for issues to be displayed in the tree and treemap charts. |
+| `licensePolicy` | - | A [custom license policy](./license-policies.md) for the audited project. |
+| `loadDataFrom` | `registry` | One of `registry` (get package info from the registry API) or `disk` (get package info from disk, from the `node_modules` directory). Setting this to `disk` can improve & bring predictability to the audit duration for large projects, but note that not all supported package information is locally available. When setting this to `disk`, make sure that your dependencies are installed. |
+| `outputPath` | `sandworm` | The output path for the audit artifact files. |
+| `failOn` | - | A [custom fail policy](./fail-policies.md) for the audited project. |
