@@ -8,6 +8,10 @@ Make sure that Sandworm runs against the most recent lockfile for your app. The 
 
 Sandworm then builds a standardized dependency graph object, representing the hierarchical structure of all your dependencies, and adds package metadata on top. By default, Sandworm obtains metadata from [npm's registry API](https://github.com/npm/registry/blob/master/docs/REGISTRY-API.md), but an offline alternative exists that's able to retrieve less info, but locally, from the `node_modules` directory.
 
+{% hint style="success" %}
+Generating a report can sometimes take a while, depending on how many direct and transient dependencies your app has in total. Sandworm fetches details about each individual dependency from the registry, so network conditions and registry availability are factors that can influence the total audit duration.
+{% endhint %}
+
 Multiple types of issue scans are then performed - see [detected issue types](./issue-types.md) for the full list.
 
 ## CVE vulnerabilities

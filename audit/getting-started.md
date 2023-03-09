@@ -51,7 +51,9 @@ Options:
       --fo, --fail-on         Fail policy JSON string   [string] [default: "[]"]
 ```
 
+{% hint style="success" %}
 Generating a report can sometimes take a while, depending on how many direct and transient dependencies your app has in total. Sandworm fetches details about each individual dependency from the registry, so network conditions and registry availability are factors that can influence the total audit duration.
+{% endhint %}
 
 After completing a report, Sandworm:
 - Outputs a summary of the identified issues to the console, as well as a list of them sorted by severity;
