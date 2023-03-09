@@ -7,9 +7,10 @@ description: Beautiful Security & License Compliance Reports For Your App's Depe
 ## Summary
 
 * Free & open source command-line tool
-* Works with any JavaScript package manager
+* Works with any modern JavaScript package manager
 * Scans your project & dependencies for vulnerabilities, license, and misc issues
 * Supports custom license policies
+* Configurable conditions to fail CI / GIT hook workflows
 * Outputs:
   * A CSV of all dependencies, with license, size, and parent info for each package;
   * An SVG treemap chart of all dependencies, to help you visualize your bundle size structure;
