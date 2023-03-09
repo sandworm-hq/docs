@@ -53,4 +53,4 @@ When identifying a package's license, Sandworm currently only looks at the `lice
 
 ## Conditionally failing the audit
 
-Sandworm is configurable to exit with code `1` after performing the audit and writing audit artifacts, if specific types of issues are discovered. This allows you to configure a custom fail policy for your app, and enforce it within CI or Git hook workflows. Read more about [configuring a fail policy](./fail-policies.md).
+Sandworm is configurable to fail and exit with code `1` after performing the audit and writing audit artifacts, if specific types of issues are discovered. This allows you to configure a custom fail policy for your app, and enforce it within CI or Git hook workflows. Read more about [configuring a fail policy](./fail-policies.md).
