@@ -20,7 +20,17 @@ Identified vulnerabilities might vary between different package managers.
 
 ## Licenses
 
-All **dependency licenses** are verified to be valid SPDX, OSI-approved, and compatible with the current project license policy, amongst other license-related checks.
+Sandworm verifies **dependency licenses** to be:
+- explicitly specified
+- valid SPDX
+- OSI-approved
+- non-deprecated
+
+You can also define a custom [license policy](./license-policies.md) by specifying allowed licenses vs. licenses or categories that should trigger audit issues.
+
+{% hint style="info" %}
+If possible, aim to use OSI-approved licenses. The goal of the OSI License Review Process is to ensure that licenses and software labeled as “open source” conform to existing community norms and expectations. Read more about the [license review process](https://opensource.org/approval/).
+{% endhint %}
 
 {% hint style="warning" %}
 When identifying a package's license, Sandworm currently only looks at the `license` field in the manifest file. Reading package `LICENSE` files is on the roadmap.
