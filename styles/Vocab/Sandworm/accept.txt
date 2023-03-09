@@ -32,3 +32,5 @@ inlined
 severities
 endhint
 endcode
+preinstall
+postinstall
