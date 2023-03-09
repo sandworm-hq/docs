@@ -55,7 +55,7 @@ Generating a report can sometimes take a while, depending on how many direct and
 
 After completing a report, Sandworm:
 - Outputs a summary of the identified issues to the console, as well as a list of them sorted by severity;
-- Writes the following audit artefacts in the `sandworm` directory (or your custom output path):
+- Writes the following audit artefacts in the `sandworm` directory, or your custom output path:
   - `NAME@VERSION-dependencies.csv`
   - `NAME@VERSION-report.json`
   - `NAME@VERSION-tree.svg`

@@ -6,7 +6,7 @@
   * [Configuration](audit/configuration.md)
   * [Issue Types](audit/issue-types.md)
   * [License Policies](audit/license-policies.md)
-  * [Fail Policy](audit/fail-policy.md)
+  * [Fail Policies](audit/fail-policies.md)
 * [Sandworm Guard](guard/README.md)
   * [Supported Methods](guard/library.md)
 * [Snapshot Testing](security-snapshot-testing.md)

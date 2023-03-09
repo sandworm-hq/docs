@@ -26,11 +26,15 @@ Sandworm verifies **dependency licenses** to be:
 - OSI-approved
 - non-deprecated
 
-You can also define a custom [license policy](./license-policies.md) by specifying allowed licenses vs. licenses or categories that should trigger audit issues.
-
 {% hint style="info" %}
 If possible, aim to use OSI-approved licenses. The goal of the OSI License Review Process is to ensure that licenses and software labeled as “open source” conform to existing community norms and expectations. Read more about the [license review process](https://opensource.org/approval/).
 {% endhint %}
+
+By default, Sandworm also issues:
+- high severity issues for network protective and strongly protective licenses;
+- moderate severity issues for weakly protective licenses.
+
+You can also define a custom [license policy](./license-policies.md) for your app by specifying allowed licenses vs. licenses or categories that should trigger audit issues.
 
 {% hint style="warning" %}
 When identifying a package's license, Sandworm currently only looks at the `license` field in the manifest file. Reading package `LICENSE` files is on the roadmap.
@@ -38,4 +42,11 @@ When identifying a package's license, Sandworm currently only looks at the `lice
 
 ## Package metadata
 
-**Dependency metadata** is also verified against common indicators of risk or poor quality, such as deprecated packages, or packages with non-registry URLs.
+**Dependency metadata** is also verified against common indicators of risk or poor quality, such as
+- deprecated packages
+- packages with non-registry URLs: `file:`, `git:`, `https:`
+- packages with install scripts: `preinstall`, `postinstall`
+
+## Conditionally failing the audit
+
+Sandworm is configurable to exit with code `1` after performing the audit and writing audit artifacts, if specific types of issues are discovered. This allows you to configure a custom fail policy for your app, and enforce it within CI or Git hook workflows. Read more about [configuring a fail policy](./fail-policies.md).
