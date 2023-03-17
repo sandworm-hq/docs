@@ -47,7 +47,8 @@ description: Beautiful Security & License Compliance Reports For Your App's Depe
 ```
 {% endcode %}
 
-![Marking issues as resolved](https://user-images.githubusercontent.com/5381731/224849330-226ef881-ffbf-4819-ba32-e434c8358f60.png)
+### Marking issues as resolved
+![Using `sandworm resolve`](https://user-images.githubusercontent.com/5381731/224849330-226ef881-ffbf-4819-ba32-e434c8358f60.png)
 
 ### Get involved
 
