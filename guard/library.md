@@ -1,4 +1,4 @@
-# Sandworm.JS Library
+# Sandworm library
 ## Node
 | Method | Description | Docs |
 |---|---|---|
