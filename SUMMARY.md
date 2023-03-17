@@ -5,7 +5,7 @@
   * [How It Works](audit/how-it-works.md)
   * [Configuration](audit/configuration.md)
   * [Issue Types](audit/issue-types.md)
-  * [Marking Issues As Resolved](audit/resolving-issues.md)
+  * [Resolved Issues](audit/resolving-issues.md)
   * [License Policies](audit/license-policies.md)
   * [Fail Policies](audit/fail-policies.md)
   * [Chart Info](audit/chart-info.md)
