@@ -60,7 +60,7 @@ Generating a report can sometimes take a while, depending on how many direct and
 {% hint style="warning" %}
 Dense, convoluted dependency graphs may require a lot of memory to render into the SVG trees that Sandworm produces. If the auditing process crashes with a `heap out of memory` error while outputting the charts, your options are:
 - Allocate more memory to the node process by exporting `NODE_OPTIONS="--max-old-space-size=16384"`
-- Reduce the depth of the tree represented by passing the `--max-depth` option to Sandworm' - defaults to 7 layers of depth
+- Reduce the depth of the tree represented by passing the `--max-depth` option to Sandworm - defaults to 7 layers of depth
 {% endhint %}
 
 After completing a report, Sandworm:
