@@ -57,6 +57,12 @@ Options:
 Generating a report can sometimes take a while, depending on how many direct and transient dependencies your app has in total. Sandworm fetches details about each individual dependency from the registry, so network conditions and registry availability are factors that can influence the total audit duration.
 {% endhint %}
 
+{% hint style="warning" %}
+Dense, convoluted dependency graphs may require a lot of memory to render into the SVG trees that Sandworm produces. If the auditing process crashes with a `heap out of memory` error while outputting the charts, your options are:
+- Allocate more memory to the node process by exporting `NODE_OPTIONS="--max-old-space-size=16384"`
+- Reduce the depth of the tree represented by passing the `--max-depth` option to Sandworm' - defaults to 7 layers of depth
+{% endhint %}
+
 After completing a report, Sandworm:
 - Outputs a summary of the identified issues to the console, as well as a list of them sorted by severity;
 - Writes the following audit artefacts in the `sandworm` directory, or your custom output path:
