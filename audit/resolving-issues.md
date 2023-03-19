@@ -88,6 +88,8 @@ Now let's say you install `packageD`, and that too turns out to depend on a vuln
 
 ## Using the command-line tool
 
+![Running Sandworm Audit](https://assets.sandworm.dev/showcase/resolve-terminal-output.gif)
+
 Instead of manually managing the `resolved-issues.json` file, you can use `sandworm resolve [issueId]`. The command-line tool makes a number of validations, and walks you through creating a new resolution or attaching a new path to an existing resolution.
 
 The output of `sandworm audit` includes issue ids that you can `resolve`:
