@@ -51,6 +51,15 @@ Options:
       --fo, --fail-on         Fail policy JSON string   [string] [default: "[]"]
   -s, --summary               Print a summary of the audit results to the
                               console                  [boolean] [default: true]
+      --skip-tree             Don't output the dependency tree chart
+                                                      [boolean] [default: false]
+      --skip-treemap          Don't output the dependency treemap chart
+                                                      [boolean] [default: false]
+      --skip-csv              Don't output the dependency csv file
+                                                      [boolean] [default: false]
+      --skip-json             Don't output the report json file
+                                                      [boolean] [default: false]
+      --skip-output           Don't output any file   [boolean] [default: false]
 ```
 
 {% hint style="success" %}
@@ -61,6 +70,8 @@ Generating a report can sometimes take a while, depending on how many direct and
 Dense, convoluted dependency graphs may require a lot of memory to render into the SVG trees that Sandworm produces. If the auditing process crashes with a `heap out of memory` error while outputting the charts, your options are:
 - Allocate more memory to the node process by exporting `NODE_OPTIONS="--max-old-space-size=16384"`
 - Reduce the depth of the tree represented by passing the `--max-depth` option to Sandworm - defaults to 7 layers of depth
+- Use the `--skip-tree` option to skip building the tree
+- Try another package manager
 {% endhint %}
 
 After completing a report, Sandworm:
