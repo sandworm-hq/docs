@@ -59,7 +59,7 @@ Options:
                                                       [boolean] [default: false]
       --skip-json             Don't output the report json file
                                                       [boolean] [default: false]
-      --skip-output           Don't output any file   [boolean] [default: false]
+      --skip-all              Don't output any file   [boolean] [default: false]
 ```
 
 {% hint style="success" %}

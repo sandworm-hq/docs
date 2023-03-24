@@ -40,4 +40,4 @@ Note that all configs need to go under the `audit` root key, and not directly in
 | `skipTreemap` | `false` | Don't output the dependency treemap chart |
 | `skipCsv` | `false` | Don't output the dependencies csv file |
 | `skipJSON` | `false` | Don't output the JSON report |
-| `skipOutput` | `false` | Don't output any file |
+| `skipAll` | `false` | Don't output any file |
