@@ -41,3 +41,4 @@ Note that all configs need to go under the `audit` root key, and not directly in
 | `skipCsv` | `false` | Don't output the dependencies csv file |
 | `skipReport` | `false` | Don't output the JSON report |
 | `skipAll` | `false` | Don't output any file |
+| `showTips` | `true` | Show Sandworm tips while building the dependency graph |
