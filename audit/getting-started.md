@@ -57,7 +57,7 @@ Options:
                                                       [boolean] [default: false]
       --skip-csv              Don't output the dependency csv file
                                                       [boolean] [default: false]
-      --skip-json             Don't output the report json file
+      --skip-report           Don't output the report json file
                                                       [boolean] [default: false]
       --skip-all              Don't output any file   [boolean] [default: false]
 ```
