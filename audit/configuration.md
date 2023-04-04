@@ -12,11 +12,11 @@ Sandworm reads configurations from a local `.sandworm.config.json` file in the r
     "minDisplayedSeverity": "high",
     "licensePolicy": {
       "high": ["cat:Network Protective", "cat:Strongly Protective"],
-      "moderate": ["cat:Weakly Protective"],
+      "moderate": ["cat:Weakly Protective"]
     },
     "loadDataFrom": "registry",
     "outputPath": "sandworm",
-    "failOn": ["*.critical"],
+    "failOn": ["*.critical"]
   }
 }
 ```
