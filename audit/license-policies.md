@@ -1,6 +1,29 @@
 # License policies
 
-Sandworm uses license policies to determine what sort of issues to raise when scanning your app's dependency licenses. A license policy object links specific license strings or license categories to an issue severity level. Any usage of such licenses will, upon audit, generate a license issue of the specified severity.
+Sandworm uses license policies to determine what sort of issues to raise when scanning your app's dependency licenses. A license policy object links specific license strings or license categories to issue severity levels. Any usage of such licenses will, upon audit, generate a license issue of the specified severity.
+
+## Default license categories
+
+The default license categories are:
+
+* `Public Domain`
+* `Permissive`
+* `Weakly Protective`
+* `Strongly Protective`
+* `Network Protective`
+* `Uncategorized`
+
+{% hint style="info" %}
+The default license category names are reserved. You can't define custom license categories with the same name as a default one, but you can override the default category assignment by Sandworm - see [custom license categories](#custom-license-categories).
+{% endhint %}
+
+See Sandworm's built-in [SPDX license database](https://github.com/sandworm-hq/sandworm-audit/blob/main/src/issues/licenses.json) for the full classification breakdown. 
+
+{% hint style="danger" %}
+While we do our best to keep license info accurate and up-to-date, you should still carefully review all of the terms and conditions of the actual license before using the licensed material. Sandworm isn't a law firm and doesn't provide legal services.
+{% endhint %}
+
+## The default license policy
 
 The default license policy:
 - Generates `high` severity license issues for licenses labeled as `Network Protective` or `Strongly Protective`;
@@ -10,18 +33,7 @@ The default license policy:
 Un-categorized licenses always result in a `high` severity error. See [issue types](https://docs.sandworm.dev/audit/issue-types).
 {% endhint %}
 
-See Sandworm's built-in [SPDX license database](https://github.com/sandworm-hq/sandworm-audit/blob/main/src/issues/licenses.json) for the full classification breakdown. The default license categories are:
-
-* `Public Domain`
-* `Permissive`
-* `Weakly Protective`
-* `Strongly Protective`
-* `Network Protective`
-* `Uncategorized`
-
-{% hint style="danger" %}
-While we do our best to keep license info accurate and up-to-date, you should still carefully review all of the terms and conditions of the actual license before using the licensed material. Sandworm isn't a law firm and doesn't provide legal services.
-{% endhint %}
+## Custom license policies
 
 You can configure Sandworm to use a custom license policy. The policy object:
 - has keys that match one of the supported issues severities: `critical`, `high`, `moderate`, or `low`;
@@ -30,7 +42,7 @@ You can configure Sandworm to use a custom license policy. The policy object:
   - a specific license - for example `MIT`;
   - a category of licenses, prefixed by "cat:" - for example `cat:Network Protective`.
 
-As an example, here is the default license policy that Sandworm applies:
+As an example, here is the representation of the default license policy that Sandworm applies:
 
 ```json
 {
