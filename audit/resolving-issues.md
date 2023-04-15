@@ -103,3 +103,23 @@ After running `sandworm resolve [issueID]` on one of the detected issues, you sp
 If any existing resolutions share the same issue id, `resolve` prompts you to either create a new resolution, or attach the new paths to an existing one:
 
 ![](https://user-images.githubusercontent.com/5381731/224849436-7517261a-8697-42f5-a454-8a781f562add.png)
+
+## Using version wildcards in issue ids
+
+Sandworm-generated issues [contain the package version in their ids](./issue-types.md#sandworm-issue-ids). This is to encourage developers to revisit security issues each time a dependency is updated.
+
+This can, however, become tedious when working with internal or otherwise fully trusted packages. For such scenarios, when resolving issues via the JSON file or the CLI, you can use a wildcard for the version in the Sandworm issue id, like:
+
+```bash
+sandworm resolve "SWRM-102-azure-common-*"
+```
+
+The wildcard in the issue id matches **any current or future instance** of the Sandworm error with code 102 (license is not OSI approved) for the package named `azure-common`.
+
+{% hint style="danger" %}
+If you don't fully trust a dependency package, don't use wildcards for its resolved issue ids. Doing so is dangerous, and can leave the door open for certain types of security issues.
+
+Imagine, for example, that you've resolved the `SWRM-102-package-name-0.9.10` issue, triggered because `package-name@0.9.10` uses `Apache 2.0` as a license, which isn't an OSI approved string. But then you update, and get a new `SWRM-102-package-name-0.9.11` issue, that has the same underlying cause as before, but needs to be marked as resolved again.
+
+So you use `SWRM-102-package-name-*` to future-proof your audits against this issue. However, along comes `package-name@0.10.0` that changes the license string from `Apache 2.0` to `AGPL`, which is still not an OSI approved string. The core of the issue has changed, but the issue id is the same and matches your resolution wildcard. A significant change that requires attention could slip by unnoticed this way.
+{% endhint %}
