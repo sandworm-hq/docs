@@ -12,13 +12,14 @@ description: Beautiful Security & License Compliance Reports For Your App's Depe
 - Supports [marking issues as resolved](./resolving-issues.md)
 - Supports [custom license policies](./license-policies.md)
 - [Configurable fail conditions](./fail-policies.md) for CI / GIT hook workflows
+- Can connect to [private/custom registries](./custom-registries.md)
 - Outputs:
   - JSON issue & license usage reports
   - Easy to grok SVG dependency tree & treemap visualizations
     - Powered by D3
     - Overlays security vulnerabilities
     - Overlays package license info
-  - CSV of all dependencies & license info
+  - csv of all dependencies & license info
 
 ### Generate a report
 ![Running Sandworm Audit](https://assets.sandworm.dev/showcase/audit-terminal-output.gif)
@@ -26,8 +27,8 @@ description: Beautiful Security & License Compliance Reports For Your App's Depe
 ### Navigate charts
 ![Sandworm treemap and tree dependency charts](https://assets.sandworm.dev/showcase/treemap-and-tree.png)
 
-### CSV output
-![Sandworm dependency CSV](https://assets.sandworm.dev/showcase/csv-snip.png)
+### csv output
+![Sandworm dependency csv](https://assets.sandworm.dev/showcase/csv-snip.png)
 
 ### JSON output
 {% code title="report.json" overflow="wrap" lineNumbers="true" %}

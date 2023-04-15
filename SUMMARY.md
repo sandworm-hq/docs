@@ -8,6 +8,7 @@
   * [Resolved Issues](audit/resolving-issues.md)
   * [License Policies](audit/license-policies.md)
   * [Fail Policies](audit/fail-policies.md)
+  * [Custom Registries](audit/custom-registries.md)
   * [Chart Info](audit/chart-info.md)
 * [Sandworm Guard](guard/README.md)
   * [Overview](guard/overview.md)

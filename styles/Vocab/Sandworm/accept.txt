@@ -35,3 +35,4 @@ endcode
 preinstall
 postinstall
 csv
+Verdaccio
