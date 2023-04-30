@@ -17,7 +17,13 @@ npm install -g @sandworm/audit
 # or pnpm add -g @sandworm/audit
 ```
 
-You can also directly run without installing via `npx @sandworm/audit@latest`.
+You can also directly run without installing via:
+
+```bash
+npx @sandworm/audit@latest
+# or yarn dlx -p @sandworm/audit sandworm
+# or pnpm --package=@sandworm/audit dlx sandworm
+```
 
 ## Run Sandworm in the terminal
 
@@ -60,8 +66,7 @@ Options:
       --skip-report           Don't output the report json file
                                                       [boolean] [default: false]
       --skip-all              Don't output any file   [boolean] [default: false]
-      --show-tips             Show Sandworm tips while building the dependency
-                              graph                    [boolean] [default: true]
+      --show-tips             Show usage tips         [boolean] [default: true]
 ```
 
 {% hint style="success" %}
