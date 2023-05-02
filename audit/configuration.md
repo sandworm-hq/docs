@@ -36,6 +36,8 @@ Note that all configs need to go under the `audit` root key, and not directly in
 | `loadDataFrom` | `registry` | One of `registry` (get package info from the registry API) or `disk` (get package info from disk, from the `node_modules` directory). Setting this to `disk` can improve & bring predictability to the audit duration for large projects, but note that not all supported package information is locally available. When setting this to `disk`, make sure that your dependencies are installed. |
 | `outputPath` | `sandworm` | The output path for the audit artifact files. |
 | `failOn` | - | A [custom fail policy](./fail-policies.md) for the audited project. |
+| `skipLicenseIssues` | `false` | Skip scanning for license issues |
+| `skipMetaIssues` | `false` | Skip scanning for meta issues |
 | `skipTree` | `false` | Don't output the dependency tree chart |
 | `skipTreemap` | `false` | Don't output the dependency treemap chart |
 | `skipCsv` | `false` | Don't output the dependencies csv file |
