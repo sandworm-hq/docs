@@ -57,6 +57,8 @@ Options:
       --fo, --fail-on         Fail policy JSON string   [string] [default: "[]"]
   -s, --summary               Print a summary of the audit results to the
                               console                  [boolean] [default: true]
+      --root-vulnerabilites   Include vulnerabilities for the root project
+                                                      [boolean] [default: false]
       --skip-license-issues   Skip scanning for license issues
                                                       [boolean] [default: false]
       --skip-meta-issues      Skip scanning for meta issues
@@ -70,7 +72,7 @@ Options:
       --skip-report           Don't output the report json file
                                                       [boolean] [default: false]
       --skip-all              Don't output any file   [boolean] [default: false]
-      --show-tips             Show usage tips         [boolean] [default: true]
+      --show-tips             Show usage tips          [boolean] [default: true]
 ```
 
 {% hint style="success" %}
