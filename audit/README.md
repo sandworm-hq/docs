@@ -9,6 +9,7 @@ description: Beautiful Security & License Compliance Reports For Your App's Depe
 - Free & open source command-line tool
 - Works with any modern JavaScript package manager
 - Scans your project & dependencies for vulnerabilities, license, and misc issues
+- Supports workspaces
 - Supports [marking issues as resolved](./resolving-issues.md)
 - Supports [custom license policies](./license-policies.md)
 - [Configurable fail conditions](./fail-policies.md) for CI / GIT hook workflows

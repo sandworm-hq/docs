@@ -34,7 +34,7 @@ The app root directory should contain a manifest file (`package.json`) and a loc
 {% endhint %}
 
 {% hint style="warning" %}
-Sandworm doesn't currently support [workspaces](https://docs.npmjs.com/cli/v9/using-npm/workspaces). You need to run Sandworm against the final built manifest and lockfile.
+If you use [workspaces](https://docs.npmjs.com/cli/v9/using-npm/workspaces), make sure to run Sandworm in the directory of the package you want to audit.
 {% endhint %}
 
 You can use a [configuration file](./configuration.md), or you can pass configuration options directly to the command-line tool. Here are the available options, that you can also list by running `sandworm-audit --help`:
