@@ -39,6 +39,7 @@ Note that all configs need to go under the `audit` root key, and not directly in
 | `skipLicenseIssues` | `false` | Skip scanning for license issues |
 | `skipMetaIssues` | `false` | Skip scanning for meta issues |
 | `skipTree` | `false` | Don't output the dependency tree chart |
+| `forceBuildLargeTrees` | `false` | Force build large dependency tree charts |
 | `skipTreemap` | `false` | Don't output the dependency treemap chart |
 | `skipCsv` | `false` | Don't output the dependencies csv file |
 | `skipReport` | `false` | Don't output the JSON report |
